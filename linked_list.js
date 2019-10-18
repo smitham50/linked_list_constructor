@@ -4,7 +4,8 @@ class LinkedList {
     this.head = null;
     this.size = 0;
   }
-  add(element) {
+  //FIFO queue, add to tail, remove from head
+  enqueue(element) {
     let node = new Node(element);
     let current;
 
@@ -21,6 +22,10 @@ class LinkedList {
 
     this.size++;
   };
+  dequeue() {
+    this.head = this.head.next;
+    this.size--;
+  }
 }
 
 class Node {
@@ -31,7 +36,10 @@ class Node {
 }
 
 let list = new LinkedList();
-list.add("first");
-list.add("second");
-list.add("third");
+list.enqueue("first");
+list.enqueue("second");
+list.enqueue("third");
+console.log(list, list.head, list.head.next, list.head.next.next);
+list.dequeue();
+list.enqueue("first");
 console.log(list, list.head, list.head.next, list.head.next.next);
