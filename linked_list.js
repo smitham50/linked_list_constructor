@@ -43,6 +43,14 @@ class LinkedList {
     this.size--;
     return element;
   }
+  //iterate over list
+  eachNode() {
+  let current = this.head
+  while (current.next !== null) {
+    console.log(current.element);
+    current = current.next;
+  }
+}
 }
 
 class Node {
@@ -52,6 +60,9 @@ class Node {
     this.next = null;
   }
 }
+
+
+
 
 let list = new LinkedList();
 list.enqueue("first");
@@ -65,3 +76,4 @@ list.push("first");
 list.push("fourth");
 console.log(list.pop());
 console.log(list, list.head, list.head.next, list.head.next.next);
+list.eachNode();
