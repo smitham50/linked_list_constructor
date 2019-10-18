@@ -1,6 +1,5 @@
 class LinkedList {
-  constructor()
-  {
+  constructor() {
     this.head = null;
     this.size = 0;
   }
@@ -43,19 +42,31 @@ class LinkedList {
     this.size--;
     return element;
   }
-  //iterate over list
+  //iterate over list and print elements
   eachNode() {
-  let current = this.head
-  while (current.next !== null) {
-    console.log(current.element);
-    current = current.next;
+  let current = this.head;
+    while (current.next) {
+      console.log(current.element);
+      current = current.next;
+    }
   }
-}
+  //get node at index
+  nodeAtIndex(index) {
+    let count = 0;
+    let current = this.head;
+    while (current.next) {
+      if (count === index) {
+        console.log(current.element);
+        break;
+      }
+      current = current.next;
+      count++;
+    }
+  }
 }
 
 class Node {
-  constructor(element) 
-  {
+  constructor(element) {
     this.element = element;
     this.next = null;
   }
@@ -68,12 +79,12 @@ let list = new LinkedList();
 list.enqueue("first");
 list.enqueue("second");
 list.enqueue("third");
-console.log(list, list.head, list.head.next, list.head.next.next);
-list.dequeue();
+// console.log(list, list.head, list.head.next, list.head.next.next);
 list.enqueue("first");
-console.log(list, list.head, list.head.next, list.head.next.next);
-list.push("first");
-list.push("fourth");
-console.log(list.pop());
-console.log(list, list.head, list.head.next, list.head.next.next);
+// console.log(list, list.head, list.head.next, list.head.next.next);
+list.push("fifth");
+list.push("sixth");
+// console.log(list, list.head, list.head.next, list.head.next.next);
 list.eachNode();
+list.nodeAtIndex(3);
+
